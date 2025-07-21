@@ -1,2 +1,3 @@
 # Greencart
- A grocery ecommerce website
+
+This is my MERN Stack grocery delivery app.
