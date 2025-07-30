@@ -36,6 +36,8 @@ const Cart = () => {
 
     
     return products.length >0 && cartItems ? (
+        <div className="max-w-7xl mx-auto px-4"> 
+        
         <div className="flex flex-col md:flex-row mt-16">
             <div className='flex-1 max-w-4xl'>
                 <h1 className="text-3xl font-medium mb-6">
@@ -139,6 +141,7 @@ const Cart = () => {
                     {paymentOption === "COD" ? "Place Order" :"Proceed to Checkout"}
                 </button>
             </div>
+        </div>
         </div>
     )
     : null
