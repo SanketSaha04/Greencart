@@ -9,13 +9,13 @@ export const register = async(req,res)=>{
          const {name,email,password} =req.body;
 
          if( !name || !email || !password ){
-            return res.json({sucess: false , message : 'Missing Details'})
+            return res.json({success: false , message : 'Missing Details'})
          }
 
          const existingUser =await User.findOne({email})
 
          if(existingUser)
-             return res.json({sucess: false , message : 'User already exists'})
+             return res.json({success: false , message : 'User already exists'})
 
          const hashedPassword = await bcrypt.hash(password,10)
 
@@ -31,10 +31,10 @@ export const register = async(req,res)=>{
            
          })
 
-          return  res.json({sucess: true , user : {email: user.email , name: user.name}})
+          return  res.json({success: true , user : {email: user.email , name: user.name}})
     } catch(error){
         console.log(error.message);
-         return res.json({sucess: false , message : error.message})
+         return res.json({success: false , message : error.message})
 
     }
 }
@@ -69,7 +69,7 @@ export const login = async (req,res)=>{
             maxAge: 7 *24 *60 *60 *1000,
          })
 
-          return  res.json({sucess: true , user : {email: user.email , name: user.name}})
+          return  res.json({success: true , user : {email: user.email , name: user.name}})
     }catch (error){
          console.log(error.message);
          return res.json({success: false , message : error.message})
